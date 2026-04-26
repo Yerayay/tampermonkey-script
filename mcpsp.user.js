@@ -267,7 +267,7 @@
     }, 300);
     
     const o = new MutationObserver((_, obs) => {if (TemaButonuEkle()) obs.disconnect();
-        LogoDegistir();
+        LogoDegistir(); pp();
     });
     
     
@@ -573,7 +573,16 @@
         banner.style.setProperty("background-repeat", "no-repeat", "important");
         
         }
-    pp();
+        const observer = new MutationObserver(() => {
+            pp();
+        });
+    
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        
 
     
 
