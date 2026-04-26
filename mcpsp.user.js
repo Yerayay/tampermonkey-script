@@ -581,6 +581,7 @@
             childList: true,
             subtree: true
         });
+        pp();
 
         
 
