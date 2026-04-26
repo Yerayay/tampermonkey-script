@@ -2,13 +2,15 @@
 // @name         Tema Eklentisi: www.mcpsp.com 
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  mcpsp.com sitesine tema fonksiyonu ekler ve çeşitli düzenlenlemeler uygular. (Geliştiriliyor...)
+// @description  mcpsp.com sitesine tema fonksiyonu ekler ve çeşitli düzenlenlemeler uygular. (
 // @author       Yerayay
 // @match        *://mcpsp.com/*
 // @match        *://*.mcpsp.com/*
 // @run-at       document-start
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=mcpsp.com
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/Yerayay/tampermonkey-script/main/mcpsp.user.js
+// @downloadURL  https://raw.githubusercontent.com/Yerayay/tampermonkey-script/main/mcpsp.user.js
 // ==/UserScript==
 
 (function() {
