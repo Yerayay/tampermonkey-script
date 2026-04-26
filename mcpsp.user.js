@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tema Eklentisi: www.mcpsp.com 
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.0.1
 // @description  mcpsp.com sitesine tema fonksiyonu ekler ve çeşitli düzenlenlemeler uygular. (
 // @author       Yerayay
 // @match        *://mcpsp.com/*
@@ -283,6 +283,8 @@
         }
     }
     o.observe(document.documentElement, { childList: true, subtree: true });
+
+    LogoDegistir();
 
     function istatistikfix() {
         if (document.getElementById("istatistikfix")) return;
