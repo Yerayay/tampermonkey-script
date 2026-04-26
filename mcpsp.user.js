@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Tema Eklentisi: www.mcpsp.com 
 // @namespace    http://tampermonkey.net/
-// @version      1.0.1
-// @description  mcpsp.com sitesine tema fonksiyonu ekler ve çeşitli düzenlenlemeler uygular. (
+// @version      1.01
+// @description  mcpsp.com sitesine tema fonksiyonu ekler ve çeşitli düzenlenlemeler uygular. 
 // @author       Yerayay
 // @match        *://mcpsp.com/*
 // @match        *://*.mcpsp.com/*
@@ -266,7 +266,9 @@
         if (TemaButonuEkle()) clearInterval(temaBtnTimer);
     }, 300);
     
-    const o = new MutationObserver((_, obs) => {if (TemaButonuEkle()) obs.disconnect();});
+    const o = new MutationObserver((_, obs) => {if (TemaButonuEkle()) obs.disconnect();
+        LogoDegistir();
+    });
     
     
 
