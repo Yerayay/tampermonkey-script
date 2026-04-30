@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tema Eklentisi: www.mcpsp.com 
 // @namespace    http://tampermonkey.net/
-// @version      1.01
+// @version      1.02
 // @description  mcpsp.com sitesine tema fonksiyonu ekler ve çeşitli düzenlenlemeler uygular. 
 // @author       Yerayay
 // @match        *://mcpsp.com/*
@@ -195,6 +195,7 @@
             border-color: #050505 !important;
             box-shadow: none !important;
             }
+
     
         `;
         document.head.appendChild(style);
@@ -229,7 +230,7 @@
         }
     
         btn.style.cssText = `
-        margin-left: 8px;
+        margin-left: 3px;
         padding: 10px 10px;
         cursor: pointer;
         border-radius: 6px;
@@ -304,6 +305,35 @@
         document.head.appendChild(style);
     }
     istatistikfix();
+
+    function ppfix() {
+        if (document.getElementById("ppfix")) return;
+    
+        const style = document.createElement("style");
+        style.id = "ppfix";
+        style.textContent += `
+        .memberHeader-avatar {
+            position: relative !important;
+        }
+        .avatarWrapper-update {
+            
+            border: transparent !important;
+            background: none !important;
+            bottom: 30px !important;
+            display: flex !important;
+            justify-content: center !important;
+            
+
+        }
+        .avatar.avatar--o.js-avatar.js-avatarCropper{
+            margin-left: 41px !important;
+        }
+        `; 
+        document.head.appendChild(style);
+    }
+    ppfix();
+
+    
     
     function Fixbir() {
         if (localStorage.getItem("tema") !== "dark") return;
@@ -466,6 +496,8 @@
         
         `;
         
+        
+        
         document.head.appendChild(style);
     }
 
@@ -534,16 +566,119 @@
         `;
         style.textContent += `
         .menu-linkRow {
+            background-color: #1e1e1e !important;
 
             color: #FFFFFF !important;
+        }
+        .menu-linkRow:hover {
+
+            background-color: #2e2e2e !important;
+            border-left: 4px solid #1b2c45 !important;
         }
         `;
         style.textContent += `
         .input * {
-            background: none !important;
-            background-color: #1e1e1e !important;
+            background: #363535 !important;
+            background-color: #363535 !important;
         }
         `;
+        style.textContent += `
+        .menu-row.menu-row--highlighted {
+            background: none !important;
+        }
+        `;
+        style.textContent += `
+        .menu-row{
+            color: white !important;
+        }
+        `;
+        style.textContent += `
+        .avatarWrapper-update {
+            margin-bottom: 20px !important;
+        }
+        `;
+        style.textContent += `
+        .menu-tabHeader {
+            background: none !important;
+            background-color: #0c1624 !important;
+            border-bottom: transparent !important;
+            box-shadow: 0 0.5px 0 0 #444;
+        }
+        `;
+        style.textContent += `
+        .block--messages .message, .block--messages .block-row {
+            border-style: none !important;
+            box-shadow: 0 0 0 0.5px #444;
+            
+        }
+        #konu_istatistikleri .grid fieldset {
+            border: 1px solid #616161 !important;
+        }
+        
+        `;
+        style.textContent += `
+        .p-navEl:focus
+        .p-navEl:focus-visible,
+        .p-navEl.is-active,
+        .p-navEl.is-selected,
+        .p-navgroup-link:focus,
+        .p-navgroup-link:focus-visible {
+            background-color: #050505 !important;
+        
+        }
+        `;
+        style.textContent += `
+        .tagItem {
+            
+            color: white !important;
+            background: #1e1e1e !important;
+            border: 1px solid #616161 !important;
+        }
+        `;
+        style.textContent += `
+        .memberTooltip-header {
+            background: #1b2c45 !important;
+            border-bottom: 1px solid #dfdfdf;
+        }
+        `;
+        style.textContent += `
+        .tooltip--member .tooltip-content{
+            color: white !important;
+        }
+        `;
+        style.textContent += `
+        .message-signature {
+            border-top: 1px solid #333333 !important;
+        }
+        `;
+        style.textContent += `
+        .message-body img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+        `;
+        style.textContent += `
+        .has-fa .slick-prev:before, .has-fa .slick-next:before {
+
+            color: white !important;
+            background: rgb(0 0 0 / 50%) !important;
+        }
+        `;
+        style.textContent += `
+        .message-userArrow,
+        .message-userArrow:after {
+            border-right-color: #1e1e1e !important;
+        }
+        `;
+        style.textContent += `
+        .messageNotice {
+            background: #5e3701 !important;
+
+        }
+        `;
+
+
 
         document.head.appendChild(style);
     }
@@ -553,7 +688,9 @@
     
     
 
-    function pp() {
+    function ppb() {
+
+        if (localStorage.getItem("tema") !== "dark") return;
 
         const profilYolu = "/members/yerayay.245681/";
         const bannerUrl = "https://i.hizliresim.com/2zyqwwd.gif";
@@ -574,14 +711,14 @@
         
         }
         const observer = new MutationObserver(() => {
-            pp();
+            ppb();
         });
     
         observer.observe(document.body, {
             childList: true,
             subtree: true
         });
-        pp();
+        ppb();
 
         
 
