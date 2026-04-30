@@ -62,6 +62,9 @@
             .p-sectionLinks-inner hScroller{
                 background-color: #050505 !important;
             }
+            .p-sectionLinks{
+                border-bottom: 1px solid #333333 !important;
+            }
             .hScroller-scroll is-calculated{
                 background-color: #1e1e1e !important;
             }
@@ -120,9 +123,8 @@
                 box-shadow: 0 0 0 0.5px #444;
 
             }
-            .tabPanes,
-            .tabPanes * {
-                border: none !important;
+            .tabPanes{
+                border-bottom: 1px solid #333333 !important;
                 
             }
             .tooltip-content{
@@ -268,7 +270,7 @@
     }, 300);
     
     const o = new MutationObserver((_, obs) => {if (TemaButonuEkle()) obs.disconnect();
-        LogoDegistir(); pp();
+        LogoDegistir(); 
     });
     
     
@@ -332,6 +334,28 @@
         document.head.appendChild(style);
     }
     ppfix();
+
+    function imgfix() {
+        if (document.getElementById("imgfix")) return;
+    
+        const style = document.createElement("style");
+        style.id = "imgfix";
+        style.textContent = `
+            .message-body img {
+                max-width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+        `;
+    
+        (document.head || document.documentElement).appendChild(style);
+    }
+    
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", imgfix);
+    } else {
+        imgfix();
+    }
 
     
     
@@ -651,13 +675,7 @@
             border-top: 1px solid #333333 !important;
         }
         `;
-        style.textContent += `
-        .message-body img {
-            max-width: 100% !important;
-            height: auto !important;
-            display: block !important;
-        }
-        `;
+        
         style.textContent += `
         .has-fa .slick-prev:before, .has-fa .slick-next:before {
 
